@@ -36,7 +36,7 @@ class UserController {
 
 			//All good
 			//Return token
-			res.status(200).json({ success: true, message: "Loggesd in successfully!" });
+			res.status(200).json({ success: true, message: "Loggesd in successfully!", id: user.id });
 		} catch (error) {
 			console.log(error);
 			res.status(500).json({ success: false, message: "Server error" });
@@ -76,6 +76,32 @@ class UserController {
 			);
 
 			res.json({ success: true, message: "Lock or unLock successfully!", updatedUser });
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ success: false, message: "Server error" });
+		}
+	}
+
+	//GET
+	async getAll(req, res, next) {
+		try {
+			const users = await User.find({});
+
+			res.json(users);
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ success: false, message: "Server error" });
+		}
+	}
+
+	//GET
+	async getOne(req, res, next) {
+		try {
+			const user = await User.findOne({ _id: req.params.id });
+
+			if (!user) return res.status(404).json({ success: false });
+
+			res.json(user);
 		} catch (error) {
 			console.log(error);
 			res.status(500).json({ success: false, message: "Server error" });

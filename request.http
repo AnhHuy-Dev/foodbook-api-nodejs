@@ -1,10 +1,9 @@
-POST http://localhost:3000/api/user/register
+POST http://localhost:3000/api/user/login
 Content-Type: application/json
 
 {
     "email": "anhkha1@gmail.com",
-    "password": "1234",
-    "username": "Anh Kha"
+    "password": "1234"
 }
 ###
 DELETE http://localhost:3000/api/user/655af56ae8b2c0bce8d215cc 
