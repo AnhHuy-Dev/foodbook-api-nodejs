@@ -1,0 +1,29 @@
+POST http://localhost:3000/api/user/register
+Content-Type: application/json
+
+{
+    "email": "anhkha1@gmail.com",
+    "password": "1234",
+    "username": "Anh Kha"
+}
+###
+DELETE http://localhost:3000/api/user/655af56ae8b2c0bce8d215cc 
+
+###
+PATCH  http://localhost:3000/api/user/lock/655af7ebb37f952d222abef8 
+
+###
+PUT  http://localhost:3000/api/category/655b00d2cf6a45c073637e5d
+Content-Type: application/json
+
+{
+    "name": "Món nướng 1",
+    "description": "Món ngonn"
+}
+###
+GET http://localhost:3000/api/category/655b00d2cf6a45c073632e5d
+###
+DELETE http://localhost:3000/api/category/655aff2bfec96d93d03b2e74
+
+
+
