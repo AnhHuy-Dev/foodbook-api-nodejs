@@ -1,5 +1,6 @@
 const userRouter = require("./user");
 const categoryRouter = require("./category");
+const reciperRouter = require("./recipe");
 
 function route(app) {
 	app.use("/api/user", userRouter);
@@ -11,6 +12,7 @@ function route(app) {
 		res.end();
 	});
 	app.use("/api/category", categoryRouter);
+	app.use("/api/recipe", reciperRouter);
 }
 
 module.exports = route;

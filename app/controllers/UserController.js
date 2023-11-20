@@ -36,7 +36,7 @@ class UserController {
 
 			//All good
 			//Return token
-			res.status(200).json({ success: true, message: "Loggesd in successfully!", id: user.id });
+			res.status(200).json({ success: true, message: "Loggesd in successfully!", user });
 		} catch (error) {
 			console.log(error);
 			res.status(500).json({ success: false, message: "Server error" });

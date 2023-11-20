@@ -6,7 +6,7 @@ Content-Type: application/json
     "password": "1234"
 }
 ###
-DELETE http://localhost:3000/api/user/655af56ae8b2c0bce8d215cc 
+GET http://localhost:3000/api/user/655af7ebb37f952d222abef8 
 
 ###
 PATCH  http://localhost:3000/api/user/lock/655af7ebb37f952d222abef8 
@@ -24,5 +24,20 @@ GET http://localhost:3000/api/category/655b00d2cf6a45c073632e5d
 ###
 DELETE http://localhost:3000/api/category/655aff2bfec96d93d03b2e74
 
+###
+POST http://localhost:3000/api/recipe
+Content-Type: application/json
+
+{   
+    "userId":"655af7ebb37f952d222abef8",
+    "categoryId":"655b00d2cf6a45c073637e5d",
+    "name": "Gà xào xả ớt",
+    "image": "test",
+    "ingredients": "test",
+    "steps" :"test"
+}
+
+###
+DELETE  http://localhost:3000/api/recipe/655b10dc8daeea1a49ad1478
 
 
