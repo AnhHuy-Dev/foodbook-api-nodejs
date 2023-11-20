@@ -38,6 +38,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE  http://localhost:3000/api/recipe/655b10dc8daeea1a49ad1478
+PATCH  http://localhost:3000/api/recipe/655b1a58d9c5ff2a099c28f1
 
 

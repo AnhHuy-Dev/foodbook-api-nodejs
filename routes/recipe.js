@@ -8,5 +8,6 @@ router.get("/:userId", RecipeController.getAllCheckUser); // get recipe- check o
 router.get("/:id", RecipeController.getOne); //get recipe
 router.post("/", RecipeController.create);
 router.delete("/:id", RecipeController.delete);
+router.patch("/:id", RecipeController.checkRecipe);
 
 module.exports = router;

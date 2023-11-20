@@ -77,6 +77,31 @@ class RecipeController {
 			res.status(500).json({ success: false, message: "Server error" });
 		}
 	}
+
+	async checkRecipe(req, res, next) {
+		try {
+			const recipe = await Recipe.findById({ _id: req.params.id });
+			if (!recipe) return res.status(400).json({ success: false, message: "User not found" });
+
+			const updatedRecipe = await Recipe.findOneAndUpdate(
+				{ _id: req.params.id },
+				{
+					name: recipe.name,
+					image: recipe.image,
+					ingredients: recipe.ingredients,
+					steps: recipe.steps,
+					user: recipe.user,
+					category: recipe.category,
+					isCheck: true,
+				}
+			);
+
+			res.json({ success: true, message: "Lock or unLock successfully!", updatedRecipe });
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ success: false, message: "Server error" });
+		}
+	}
 }
 
 module.exports = new RecipeController();
