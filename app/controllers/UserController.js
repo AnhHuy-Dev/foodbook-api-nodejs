@@ -110,10 +110,9 @@ class UserController {
 
 	//POST
 	async update(req, res, next) {
-		const { email, password, username } = req.body;
+		const { password, username } = req.body;
 		try {
 			let updatedUser = {
-				email,
 				password,
 				username,
 			};
