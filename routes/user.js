@@ -10,5 +10,6 @@ router.post("/login", UserController.login);
 router.post("/register", UserController.register);
 router.delete("/:id", UserController.delete);
 router.patch("/lock/:id", UserController.lock);
+router.post("/:id", UserController.update);
 
 module.exports = router;

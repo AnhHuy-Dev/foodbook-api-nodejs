@@ -107,6 +107,27 @@ class UserController {
 			res.status(500).json({ success: false, message: "Server error" });
 		}
 	}
+
+	//POST
+	async update(req, res, next) {
+		const { email, password, username } = req.body;
+		try {
+			let updatedUser = {
+				email,
+				password,
+				username,
+			};
+
+			updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, updatedUser, { new: true });
+
+			//user not authorised or post not found
+			if (!updatedUser) return res.status(401).json({ success: false, message: "User not found or user not authorised" });
+			res.json({ success: true, message: "Excellent progress!", updatedUser });
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ success: false, message: "Server error" });
+		}
+	}
 }
 
 module.exports = new UserController();

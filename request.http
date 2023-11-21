@@ -1,9 +1,10 @@
-POST http://localhost:3000/api/user/login
+POST http://localhost:4000/api/user/655c63e423588c967bc02ec0
 Content-Type: application/json
 
 {
     "email": "anhkha1@gmail.com",
-    "password": "1234"
+    "password": "12341111",
+    "username": "1"
 }
 ###
 GET http://localhost:3000/api/user/655af7ebb37f952d222abef8 
