@@ -17,7 +17,7 @@
 
 -   / : GET -> get all category
 -   /:id : GET -> get category have id
--   /:id : DELETE -> delete user have id
+-   /:id : DELETE -> delete category have id
 -   / : POST(name, description) -> new category
 -   /:id : PUT(name, description) -> update category
 
@@ -25,10 +25,10 @@
 
 ## Recipe: /recipe +
 
--   /check: GET -> get all check of all user
--   /uncheck: GET -> get all uncheck of all user
--   /:userId: GET -> get all of user have id
+-   /check: GET -> get all recipe check of all user
+-   /uncheck: GET -> get all recipe uncheck of all user
+-   /user/:userId: GET -> get all of recipe of user have id
 -   /:id : GET -> get one recipe have id
 -   / : POST(userId, categoryId, name, image,...) -> new recipe
--   /:id: DELETE -> delete category have id
--   /:id : PATCH -> check category have id
+-   /:id : DELETE -> delete recipe have id
+-   /:id : PATCH -> handle check recipe have id
