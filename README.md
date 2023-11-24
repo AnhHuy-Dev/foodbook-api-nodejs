@@ -32,3 +32,6 @@
 -   / : POST(userId, categoryId, name, image,...) -> new recipe
 -   /:id : DELETE -> delete recipe have id
 -   /:id : PATCH -> handle check recipe have id
+-   /favorite/:userId/:id : PATCH -> handle favorite recipe have id
+-   /unfavorite/:userId/:id : PATCH -> handle unfavorite recipe have id
+-   /favorite/:userId : GET -> get all favorite recipe of user have id
