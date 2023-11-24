@@ -34,6 +34,7 @@ class UserController {
 			//check pass
 			if (password !== user.password) return res.status(400).json({ success: false, message: "Incorrect password" });
 
+			if (user.isLock) return res.status(400).json({ success: false, message: "User is locking!" });
 			//All good
 			//Return token
 			res.status(200).json({ success: true, message: "Loggesd in successfully!", user });
