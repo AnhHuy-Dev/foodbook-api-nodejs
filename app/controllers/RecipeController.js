@@ -81,7 +81,7 @@ class RecipeController {
 	async checkRecipe(req, res, next) {
 		try {
 			const recipe = await Recipe.findById({ _id: req.params.id });
-			if (!recipe) return res.status(400).json({ success: false, message: "User not found" });
+			if (!recipe) return res.status(400).json({ success: false, message: "Recipe not found" });
 
 			const updatedRecipe = await Recipe.findOneAndUpdate(
 				{ _id: req.params.id },
@@ -97,6 +97,72 @@ class RecipeController {
 			);
 
 			res.json({ success: true, message: "Lock or unLock successfully!", updatedRecipe });
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ success: false, message: "Server error" });
+		}
+	}
+
+	async favorite(req, res, next) {
+		try {
+			const recipe = await Recipe.findById({ _id: req.params.id });
+			if (!recipe) return res.status(400).json({ success: false, message: "Recipe not found" });
+			const userId = recipe.userFavorites.find((item) => item === req.params.userId);
+			if (userId !== undefined) return res.status(400).json({ success: false, message: "Favorited" });
+
+			const updatedRecipe = await Recipe.findOneAndUpdate(
+				{ _id: req.params.id },
+				{
+					name: recipe.name,
+					image: recipe.image,
+					ingredients: recipe.ingredients,
+					steps: recipe.steps,
+					user: recipe.user,
+					$push: { userFavorites: req.params.userId },
+					category: recipe.category,
+					isCheck: true,
+				}
+			);
+
+			res.json({ success: true, message: "Favorite successfully!" });
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ success: false, message: "Server error" });
+		}
+	}
+
+	async getFavoriteRecipe(req, res, next) {
+		try {
+			const recipes = await Recipe.find({ userFavorites: { $in: req.params.userId } });
+			res.json(recipes);
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ success: false, message: "Server error" });
+		}
+	}
+	async unFavorite(req, res, next) {
+		try {
+			const recipe = await Recipe.findById({ _id: req.params.id });
+			if (!recipe) return res.status(400).json({ success: false, message: "Recipe not found" });
+
+			const userId = recipe.userFavorites.find((item) => item === req.params.userId);
+			if (userId === undefined) return res.status(400).json({ success: false, message: "User don't favorite" });
+
+			const updatedRecipe = await Recipe.findOneAndUpdate(
+				{ _id: req.params.id },
+				{
+					name: recipe.name,
+					image: recipe.image,
+					ingredients: recipe.ingredients,
+					steps: recipe.steps,
+					user: recipe.user,
+					$pull: { userFavorites: req.params.userId },
+					category: recipe.category,
+					isCheck: true,
+				}
+			);
+
+			res.json({ success: true, message: "Unfavorite successfully!" });
 		} catch (error) {
 			console.log(error);
 			res.status(500).json({ success: false, message: "Server error" });

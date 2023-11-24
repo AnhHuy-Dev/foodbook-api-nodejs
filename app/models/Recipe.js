@@ -22,6 +22,10 @@ const RecipeSchema = new Schema({
 		type: Boolean,
 		default: false,
 	},
+	userFavorites: {
+		type: [String],
+		default: [],
+	},
 	createAt: {
 		type: Date,
 		default: Date.now,
