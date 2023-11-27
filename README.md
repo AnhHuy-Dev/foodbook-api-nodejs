@@ -12,6 +12,7 @@
 -   /:id : GET -> get user have id
 -   /:id : DELETE -> delete user have id
 -   /lock/:id : PATCH -> lock/unlock user have id
+-   /:id : PUT(username, password): update user have id
 
 ## Category: /category +
 

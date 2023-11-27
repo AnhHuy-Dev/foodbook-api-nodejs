@@ -13,12 +13,12 @@ GET http://localhost:4000/api/recipe/favorite/655e1d2017164f60467b7de4
 PATCH  http://localhost:4000/api/recipe/unfavorite/655e1d2017164f60467b7de4/6560c90e7d31930b5dffd962 
 
 ###
-PUT  http://localhost:3000/api/category/655b00d2cf6a45c073637e5d
+PUT  http://localhost:4000/api/user/655ba0e1545d190e7c1a33fa
 Content-Type: application/json
 
 {
-    "name": "Món nướng 1",
-    "description": "Món ngonn"
+    "username": null,
+    "password": "Món ngonn"
 }
 ###
 GET http://localhost:3000/api/category/655b00d2cf6a45c073632e5d

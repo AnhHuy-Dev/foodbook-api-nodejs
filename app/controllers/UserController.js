@@ -109,14 +109,19 @@ class UserController {
 		}
 	}
 
-	//POST
+	//PUT
 	async update(req, res, next) {
 		const { password, username } = req.body;
 		try {
+			const user = await User.findOne({ _id: req.params.id });
+
+			if (!user) return res.status(404).json({ success: false });
 			let updatedUser = {
 				password,
 				username,
 			};
+
+			if (username == null) updatedUser.username = user.username;
 
 			updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, updatedUser, { new: true });
 
