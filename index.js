@@ -7,7 +7,7 @@ const route = require("./routes/index");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 
-const swaggerUiAssetPath = require("swagger-ui-dist").getAbsoluteFSPath();
+// const swaggerUiAssetPath = require("swagger-ui-dist").getAbsoluteFSPath();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -15,9 +15,9 @@ const options = {
 	definition: {
 		openapi: "3.0.0",
 		info: {
-			title: "Book API",
+			title: "Foodbook API",
 			version: "1.0.0",
-			description: "A simple Express Book API",
+			description: "A simple Express Foodbook API",
 		},
 		servers: [
 			{
