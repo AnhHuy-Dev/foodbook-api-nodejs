@@ -1,6 +1,6 @@
 /**
- * @swagger
- * tags:
+* @swagger
+ tags:
  *   name: Recipe
  *   description: Operations related to recipes
  *
