@@ -96,7 +96,7 @@ class RecipeController {
 				}
 			);
 
-			res.json({ success: true, message: "Lock or unLock successfully!", updatedRecipe });
+			res.json({ success: true, message: "Check successfully!", updatedRecipe });
 		} catch (error) {
 			console.log(error);
 			res.status(500).json({ success: false, message: "Server error" });

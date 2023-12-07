@@ -44,7 +44,7 @@ class UserController {
 		}
 	}
 
-	//DETE /:id
+	//DELETE /:id
 	async delete(req, res, next) {
 		try {
 			const user = await User.findById({ _id: req.params.id });
