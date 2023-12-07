@@ -1,5 +1,4 @@
 const SwaggerUIBundle = require("swagger-ui-dist");
-const SwaggerUIStandalonePreset = require("swagger-ui-dist");
 const express = require("express");
 const app = express();
 const cors = require("cors");
