@@ -1,3 +1,5 @@
+const SwaggerUIBundle = require("swagger-ui-dist");
+const SwaggerUIStandalonePreset = require("swagger-ui-dist");
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -6,6 +8,7 @@ const route = require("./routes/index");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("./public/swagger.json");
 
+const swaggerUiAssetPath = require("swagger-ui-dist").getAbsoluteFSPath();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // const options = {
